@@ -13,16 +13,22 @@ public class SquareTest
   public void testArea()
   {
     Square s = new Square(25);
-    assert s.area() == 62;
-
+    Assert.assertEquals(s.area(),625.0);
   }
 
+
+  @Test
   public void testArea2()
   {
     Square s = new Square(25);
-    assert s.area() == 625;
-    Assert.
+    Assert.assertEquals(s.area(),624.0);
+  }
 
+  @Test
+  public void testArea3()
+  {
+    Square s = new Square(25);
+    Assert.assertEquals(s.area(),4.0);
   }
 
 
