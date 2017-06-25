@@ -16,6 +16,8 @@ import static org.openqa.selenium.OutputType.*;
 
 
 public class GroupCreationTest {
+
+
     FirefoxDriver wd;
     
     @BeforeMethod
