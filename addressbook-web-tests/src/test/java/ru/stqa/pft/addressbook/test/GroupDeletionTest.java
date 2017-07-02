@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.test;
 
 import org.testng.annotations.Test;
 
@@ -16,10 +16,10 @@ public class GroupDeletionTest extends TestBase {
         wd.findElement(By.name("se lected[]")).click();
         wd.findElement(By.xpath("//div[@id='content']/form/input[5]")).click();*/
 
-        gotoGroupPage();
-        selectGroup();
-        deleteSelectedGroups();
-        returnToGroupPage();
+        app.gotoGroupPage();
+        app.selectGroup();
+        app.deleteSelectedGroups();
+        app.returnToGroupPage();
     }
 
 
