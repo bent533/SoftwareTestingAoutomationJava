@@ -16,10 +16,10 @@ public class GroupDeletionTest extends TestBase {
         wd.findElement(By.name("se lected[]")).click();
         wd.findElement(By.xpath("//div[@id='content']/form/input[5]")).click();*/
 
-        app.gotoGroupPage();
-        app.selectGroup();
-        app.deleteSelectedGroups();
-        app.returnToGroupPage();
+        app.getNavigationHelper().gotoGroupPage();
+        app.getGroupHelper().selectGroup();
+        app.getGroupHelper().deleteSelectedGroups();
+        app.getGroupHelper().returnToGroupPage();
     }
 
 
