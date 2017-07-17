@@ -22,6 +22,7 @@ public class AplicationManager {
   private SessionHelper sessionHelper;
   private String browser;
 
+  /*Конструктор класса Aplication Manager*/
   public AplicationManager(String browser) {
     this.browser = browser;
   }

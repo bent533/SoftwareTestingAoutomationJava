@@ -25,8 +25,17 @@ public class HelperBase {
     click(locator);
     if (text!=null)   /*null Нужен когда пустые значения пытаемся заполнить*/
     {
-      wd.findElement(locator).clear();
-      wd.findElement(locator).sendKeys(text);
+      String existingtesxt = wd.findElement(locator).getAttribute("value");/*тот текст который мы видим в поле значения ввода
+      является значением value
+      getText вернет нуль
+      но для остальных значений нужно его использовать*/
+      /*! отрицание*/
+      if(! text.equals(existingtesxt))
+      {
+        wd.findElement(locator).clear();
+        wd.findElement(locator).sendKeys(text);
+      }
+
     }
   }
 
