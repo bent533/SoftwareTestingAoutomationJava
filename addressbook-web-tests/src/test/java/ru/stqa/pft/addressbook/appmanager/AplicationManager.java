@@ -26,6 +26,8 @@ public class AplicationManager {
     this.browser = browser;
   }
 
+
+  /* Переместили в HelperBAse
   public static boolean isAlertPresent(FirefoxDriver wd) {
       try {
           wd.switchTo().alert();
@@ -34,7 +36,7 @@ public class AplicationManager {
           return false;
       }
   }
-
+*/
   public void init() {
 
     if (Objects.equals(browser, BrowserType.FIREFOX)){
