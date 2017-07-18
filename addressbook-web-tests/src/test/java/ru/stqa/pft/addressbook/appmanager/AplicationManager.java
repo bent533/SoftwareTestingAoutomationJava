@@ -20,6 +20,10 @@ public class AplicationManager {
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
   private SessionHelper sessionHelper;
+
+  /*Класс для работы с котактами*/
+  private ContactHelper contactHelper;
+
   private String browser;
 
   /*Конструктор класса Aplication Manager*/
@@ -51,9 +55,12 @@ public class AplicationManager {
 
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
+
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
+    contactHelper = new ContactHelper(wd);
+
     sessionHelper.login("admin", "secret");
   }
 
@@ -63,11 +70,7 @@ public class AplicationManager {
     wd.quit();
   }
 
-  public GroupHelper getGroupHelper() {
-    return groupHelper;
-  }
-
-  public NavigationHelper getNavigationHelper() {
-    return navigationHelper;
-  }
+  public GroupHelper getGroupHelper() { return groupHelper;  }
+  public NavigationHelper getNavigationHelper() {    return navigationHelper;  }
+  public ContactHelper getContactHelper() {return contactHelper;}
 }
