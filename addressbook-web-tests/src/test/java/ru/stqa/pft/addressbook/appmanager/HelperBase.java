@@ -53,12 +53,15 @@ public class HelperBase {
 
 
 
-  public boolean isElementPresent(By by) {
+  public boolean isElementPresent(By locator) {
     try {
-      wd.findElements(by);
+      wd.findElements(locator);
       return true;
-    } catch (org.openqa.selenium.NoSuchElementException e) {
+    } catch (NoSuchElementException ex) {
       return false;
     }
   }
+
+
+
 }
