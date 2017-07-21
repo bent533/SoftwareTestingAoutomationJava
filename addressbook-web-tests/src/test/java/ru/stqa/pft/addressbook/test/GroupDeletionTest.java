@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.test;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
@@ -18,9 +19,9 @@ public class GroupDeletionTest extends TestBase {
         wd.findElement(By.xpath("//div[@id='content']/form/input[5]")).click();*/
 
         app.getNavigationHelper().gotoGroupPage();
-        if(!app.getGroupHelper().isThereAGroup())
+        if(! app.getGroupHelper().isThereAGroup(By.name("selected[]")))
         {
-            app.getGroupHelper().createGroup(new GroupData("test1",null,null));
+            app.getGroupHelper().createGroup(new GroupData("testDeletionCreation",null,null));
         }
         app.getGroupHelper().selectGroup();
         app.getGroupHelper().deleteSelectedGroups();
