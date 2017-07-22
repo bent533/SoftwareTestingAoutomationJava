@@ -9,6 +9,8 @@ import ru.stqa.pft.addressbook.model.ContactData;
  */
 public class ContactHelper extends HelperBase
 {
+
+
   /*Здесь передали в конструктор базового класса браузер, который будет использоваться */
   public ContactHelper(WebDriver wd) { super(wd);  }
 
@@ -38,5 +40,13 @@ public class ContactHelper extends HelperBase
   public void submitContactCreation() {
     click(By.name("submit"));
   }
+
+  public void initContactModification() {
+    click(By.name("selected[]"));
+    click(By.cssSelector("img[alt='Edit']"));  //выяснить почему такой локатор
+  }
+
+
+  public void submitContactModification() { click(By.name("update"));  }
 
 }

@@ -29,7 +29,7 @@ public class NavigationHelper extends HelperBase{
   public void gotoAddNewContact() { click(By.linkText("add new"));}
 
   public void gotoHome(){
-    if(isElementPresent(By.id("maintable")))
+    if(isElementPresent(By.id("maintable")))    // вот здесь косяко
     {return;}
     click(By.linkText("home"));
   }
