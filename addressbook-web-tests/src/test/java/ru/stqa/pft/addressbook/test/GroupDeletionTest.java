@@ -19,10 +19,13 @@ public class GroupDeletionTest extends TestBase {
         wd.findElement(By.xpath("//div[@id='content']/form/input[5]")).click();*/
 
         app.getNavigationHelper().gotoGroupPage();
+
+        //Перед удалением смотрим,есть ли элемент такой на форме
         if(! app.getGroupHelper().isThereAGroup(By.name("selected[]")))
         {
             app.getGroupHelper().createGroup(new GroupData("testDeletionCreation",null,null));
         }
+
         app.getGroupHelper().selectGroup();
         app.getGroupHelper().deleteSelectedGroups();
         app.getGroupHelper().returnToGroupPage();
