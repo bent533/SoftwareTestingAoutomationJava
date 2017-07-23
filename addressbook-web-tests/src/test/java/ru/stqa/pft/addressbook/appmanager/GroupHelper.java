@@ -70,4 +70,7 @@ public class GroupHelper extends HelperBase{
   }
 
 
+  public int getGroupCount() {
+    return wd.findElements(By.name("selected[]")).size(); //возвращает список элементов на странице с таким локатором
+  }
 }
