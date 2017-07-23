@@ -85,5 +85,23 @@ public class ContactHelper extends HelperBase
   }
 
 
+  public void selectContact()
+  {
+    click(By.name("selected[]"));
+  }
+
+
+  public void deleteSelectedContacts() {
+   // click(By.name("delete"));
+    //IWebElement element = driver.FindElement(By.XPAth("//XpathOfTheElement"));
+    //string id = element.GetAttribute("id")
+    String id= wd.findElement(By.name("selected[]")).getAttribute("id");
+
+    if (!wd.findElement(By.id(id)).isSelected()) {
+      wd.findElement(By.id(id)).click();
+    }
+    wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]")).click();
+    wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
+  }
 }
 
