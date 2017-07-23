@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.test;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;;
 import org.openqa.selenium.By;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -13,7 +14,7 @@ public class ContactDeletionTest extends TestBase {
   public void testContactDeletion ()
   {
     app.getNavigationHelper().gotoHome();
-
+    int before = app.getContactHelper().getContactCount();
     //Перед удалением смотрим,есть ли элемент такой на форме
     if(! app.getContactHelper().isThereAContact(By.name("selected[]")))
     {
@@ -23,6 +24,8 @@ public class ContactDeletionTest extends TestBase {
     app.getContactHelper().selectContact();
     app.getContactHelper().deleteSelectedContacts();
     app.getNavigationHelper().gotoHome();
+    int after = app.getContactHelper().getContactCount();
+    Assert.assertEquals(after,before-1);
   }
 
 }

@@ -106,5 +106,9 @@ public class ContactHelper extends HelperBase
 
     wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
   }
+
+  public int getContactCount() {
+    return wd.findElements(By.name("selected[]")).size(); //возвращает список элементов на странице с таким локатором
+  }
 }
 
