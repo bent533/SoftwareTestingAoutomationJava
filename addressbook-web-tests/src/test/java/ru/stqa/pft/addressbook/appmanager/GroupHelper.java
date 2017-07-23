@@ -64,7 +64,7 @@ public class GroupHelper extends HelperBase{
     returnToGroupPage();
   }
 
-  public boolean isThereAGroup(By locatorr)
+  public boolean isThereAGroup(By locator)
   {
     return isElementPresent(By.name("selected[]"));
   }

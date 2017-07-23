@@ -57,7 +57,33 @@ public class ContactHelper extends HelperBase
     click(By.cssSelector("img[alt='Edit']"));  //выяснить почему такой локатор
   }
 
+  private void returnToHomePage() {
+    if(isElementPresent(By.id("maintable")))    // вот здесь косяко - если задержка 0 то ОКе
+    {
+      return;
+    }
+    click(By.linkText("home"));
+  }
+
 
   public void submitContactModification() { click(By.name("update"));  }
 
+
+  //Создание контакта
+  public void createContact(ContactData contactDataFromClassContactCreationTest, boolean creationFromClassContactCreationTest)
+  {
+    click(By.linkText("add new"));
+    fillContactForm(contactDataFromClassContactCreationTest,creationFromClassContactCreationTest);
+    submitContactCreation();
+    returnToHomePage();
+  }
+
+  //Есть ли контакт на форме?
+  public boolean isThereAContact(By locator)
+  {
+      return isElementPresent(By.name("selected[]"));
+  }
+
+
 }
+
