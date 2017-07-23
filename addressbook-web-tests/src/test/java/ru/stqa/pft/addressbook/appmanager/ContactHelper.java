@@ -100,7 +100,10 @@ public class ContactHelper extends HelperBase
     if (!wd.findElement(By.id(id)).isSelected()) {
       wd.findElement(By.id(id)).click();
     }
-    wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]")).click();
+
+   //на этом этапе уже вылетает окошко да/нет
+    // wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]")).click();
+
     wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
   }
 }
