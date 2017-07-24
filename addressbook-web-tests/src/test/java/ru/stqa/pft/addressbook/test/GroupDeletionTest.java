@@ -7,9 +7,6 @@ import ru.stqa.pft.addressbook.model.GroupData;
 
 public class GroupDeletionTest extends TestBase {
 
-
-
-    
     @Test
     public void testGroupDeletion () {
       /*  wd.get("http://localhost/addressbook/group.php");
@@ -27,7 +24,7 @@ public class GroupDeletionTest extends TestBase {
             app.getGroupHelper().createGroup(new GroupData("testDeletionCreation",null,null));
         }
 
-        app.getGroupHelper().selectGroup();
+        app.getGroupHelper().selectGroup(before-1);
         app.getGroupHelper().deleteSelectedGroups();
         app.getGroupHelper().returnToGroupPage();
         int after = app.getGroupHelper().getGroupCount();
