@@ -5,6 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
+import java.util.List;
+
 /**
  * Created by Сергей on 02.07.2017.
  */
@@ -13,20 +15,19 @@ public class GroupModificationTest extends TestBase {
   public void testGroupModification()
   {
     app.getNavigationHelper().gotoGroupPage();
-    int before = app.getGroupHelper().getGroupCount();
     //Перед изменением смотрим,есть ли элемент такой на форме
     if(! app.getGroupHelper().isThereAGroup(By.name("selected[]")))
     {
       app.getGroupHelper().createGroup(new GroupData("testModificationCreation",null,null));
     }
-
-    app.getGroupHelper().selectGroup(before-1);
+    List<GroupData> before = app.getGroupHelper().getGroupList(); // важно производить подсчет уже на открытой странице!!!
+    app.getGroupHelper().selectGroup(before.size()-1);
     app.getGroupHelper().initGroupModification(); //новый метод
     app.getGroupHelper().fillGroupForm(new GroupData("c1", "q2", "c3"));
     app.getGroupHelper().submitGroupModification(); //новый метод
     app.getGroupHelper().returnToGroupPage();
-    int after = app.getGroupHelper().getGroupCount();
-    Assert.assertEquals(after,before);
+    List<GroupData> after = app.getGroupHelper().getGroupList(); // важно производить подсчет уже на открытой странице!!!
+    Assert.assertEquals(after.size(),before.size());
   }
 
 
