@@ -24,20 +24,24 @@ public class GroupModificationTest extends TestBase {
     List<GroupData> before = app.getGroupHelper().getGroupList(); // важно производить подсчет уже на открытой странице!!!
     app.getGroupHelper().selectGroup(before.size()-1);
     app.getGroupHelper().initGroupModification(); //новый метод
-    GroupData group = new GroupData("c1", "q2", "c3");//для работы со списком
+    GroupData group = new GroupData(before.get(before.size()-1).getId(),"c1", "q2", "c3");//для работы со списком
     app.getGroupHelper().fillGroupForm(group);
     app.getGroupHelper().submitGroupModification(); //новый метод
     app.getGroupHelper().returnToGroupPage();
     List<GroupData> after = app.getGroupHelper().getGroupList(); // важно производить подсчет уже на открытой странице!!!
     Assert.assertEquals(after.size(),before.size());
 
+
+    before.remove(before.size()-1);
+    before.add(group);
+    Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));
 /*
-    before.remove(before.size());
+
     Assert.assertEquals(before,after);*/
 
     /*
-    before.add(group);
-    Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));*/
+    ;
+    */
   }
 
 
